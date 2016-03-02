@@ -98,26 +98,6 @@ VCSessionDelegate
         NSLog(@"Error, the url scheme %@ is not supported.", scheme);
         return;
     }
-    
-    NSString *urlString = pushURL.absoluteString;
-    NSArray *components = [urlString componentsSeparatedByString:@"/"];
-    [components enumerateObjectsUsingBlock:^(NSString *str, NSUInteger idx, BOOL *stop) {
-        if ([str isEqualToString:@"livestream"]) {
-            NSString *host = components[0];
-            for (NSUInteger i = 1; i <= idx; i++) {
-                host = [host stringByAppendingString:[NSString stringWithFormat:@"/%@", components[i]]];
-            }
-            self.host = host;
-            
-            NSString *name = components[idx + 1];
-            for (NSUInteger i = idx + 2; i < components.count; i++) {
-                name = [name stringByAppendingString:[NSString stringWithFormat:@"/%@", components[i]]];
-            }
-            self.streamName = name;
-            
-            *stop = YES;
-        }
-    }];
 }
 
 - (void)setPreviewView:(UIView *)previewView {
