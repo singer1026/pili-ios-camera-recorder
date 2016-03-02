@@ -39,7 +39,9 @@
         [alertView show];
     }
     
-    [PLCaptureManager sharedManager].pushURL = [NSURL URLWithString:@"rtmp://10.0.1.6/livestream/111"];
+    [PLCaptureManager sharedManager].pushURL = [NSURL URLWithString:@"rtmp://192.168.199.193:1935/live1/room1"];
+    [PLCaptureManager sharedManager].streamName = @"room1";
+    [PLCaptureManager sharedManager].host = @"192.168.199.193:1935/live1";
 }
 
 #pragma mark - Action
